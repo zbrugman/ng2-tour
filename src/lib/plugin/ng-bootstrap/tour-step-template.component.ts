@@ -7,14 +7,7 @@ import { Component, TemplateRef, ViewChild, AfterViewInit, ViewEncapsulation } f
   selector: 'tour-step-template',
   styles: ['body { max-height: 100vh; }'],
   template: `
-    <template #tourStep let-step="step">
-      <p class="tour-step-content">{{step?.content}}</p>
-      <div class="tour-step-navigation">
-        <button *ngIf="tourService.hasPrev(step)" class="btn btn-sm btn-default" (click)="tourService.prev()">« Prev</button>
-        <button *ngIf="tourService.hasNext(step)" class="btn btn-sm btn-default" (click)="tourService.next()">Next »</button>
-        <button class="btn btn-sm btn-default" (click)="tourService.end()">End</button>
-      </div>
-    </template>
+    \n   <div class='repiq-tour animate bounceIn'> <ng-template #tourStep let-step=\"step\" class=\"repiq-tour\">\n      <p class=\"tour-step-content\">{{step?.content}}</p>\n     <div class=\"row\">\n   <div class=\"tour-step-navigation col-xs-12\">\n <button *ngIf=\"tourService.hasPrev(step)\" class=\"btn btn-secondary float-xs-left\" (click)=\"tourService.prev()\"><i class='fa fa-fw fa-long-arrow-left' aria-hidden='true'></i> Prev</button>\n        <button *ngIf=\"tourService.hasNext(step)\" class=\"btn  btn-primary float-xs-right\" (click)=\"tourService.next()\">Next <i class='fa fa-fw fa-long-arrow-right' aria-hidden='true'></i></button>\n </div>\n   <div class=\"col-xs-12\">\n    <span class=\"mt-1 mb-1 small secondary d-block text-xs-center\" (click)=\"tourService.end()\">Seen this already? <span class='color-primary cursor-pointer'>Do not show this again</span></span>\n      </div>\n  </div>\n </ng-template>\n </div>\n 
   `,
 })
 export class TourStepTemplateComponent implements AfterViewInit {
