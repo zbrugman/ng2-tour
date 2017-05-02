@@ -8,6 +8,9 @@ import { Component, TemplateRef, ViewChild, AfterViewInit, ViewEncapsulation } f
   styles: ['body { max-height: 100vh; }'],
   template: `
     <template #tourStep let-step="step">
+      <span class="close-btn btn color-secondary" (click)="tourService.end()">
+        <i class="fa fa-fw fa-times"></i>
+      </span>
       <p class="tour-step-content">{{step?.content}}</p>
       <div class="row">
         <div class="tour-step-navigation col-xs-12">
@@ -15,7 +18,7 @@ import { Component, TemplateRef, ViewChild, AfterViewInit, ViewEncapsulation } f
           <button *ngIf="tourService.hasNext(step)" class="btn  btn-primary float-xs-right" (click)="tourService.next()">Next <i class="fa fa-fw fa-long-arrow-right" aria-hidden="true"></i></button>
         </div>
         <div class="col-xs-12">
-          <span class="mt-1 mb-1 small secondary d-block text-xs-center" (click)="tourService.end()">Seen this already? <span class="color-primary cursor-pointer">Do not show this again</span></span>
+          <span class="mt-1 mb-1 small secondary d-block text-xs-center" (click)="tourService.end()"><span class="color-primary cursor-pointer">Do not show this again</span></span>
         </div>
       </div>
     </template>`,
